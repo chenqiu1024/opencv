@@ -81,8 +81,10 @@ if(WITH_JPEG)
 
     set(JPEG_LIBRARY libjpeg)
     set(JPEG_LIBRARIES ${JPEG_LIBRARY})
-    add_subdirectory("${OpenCV_SOURCE_DIR}/3rdparty/libjpeg")
-    set(JPEG_INCLUDE_DIR "${${JPEG_LIBRARY}_SOURCE_DIR}")
+    # add_subdirectory("${OpenCV_SOURCE_DIR}/3rdparty/libjpeg")
+    # set(JPEG_INCLUDE_DIR "${${JPEG_LIBRARY}_SOURCE_DIR}")
+    set(JPEG_INCLUDE_DIR "${OpenCV_SOURCE_DIR}/3rdparty/libjpeg")
+    set(JPEG_SOURCE_DIR "${OpenCV_SOURCE_DIR}/3rdparty/libjpeg")
   endif()
 
   ocv_parse_header("${JPEG_INCLUDE_DIR}/jpeglib.h" JPEG_VERSION_LINES JPEG_LIB_VERSION)
