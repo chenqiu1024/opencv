@@ -1,3 +1,9 @@
+### OpenCV modified for building iOS framework with libjpeg-turbo
+#### How to build
+cd platforms/ios/
+python build_framework.py DESTINATION_PATH
+
+-------------------------------------------------
 ### OpenCV: Open Source Computer Vision Library
 
 #### Resources
