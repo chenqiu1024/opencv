@@ -4,6 +4,10 @@ cd platforms/ios/
 
 python build_framework.py DESTINATION_PATH
 
+### References
+https://github.com/praveenofpersia/Pandboard-ES/wiki/Building-OpenCV-2.4.x-with-full-hardware-optimization-for-the-Pandaboard-ES
+http://stackoverflow.com/questions/10465209/how-to-compile-opencv-with-libjpeg-turbo
+
 -------------------------------------------------
 ### OpenCV: Open Source Computer Vision Library
 
