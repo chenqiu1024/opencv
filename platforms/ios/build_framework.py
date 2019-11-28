@@ -30,6 +30,7 @@ Adding --dynamic parameter will build opencv2.framework as App Store dynamic fra
 from __future__ import print_function
 import glob, re, os, os.path, shutil, string, sys, argparse, traceback
 from subprocess import check_call, check_output, CalledProcessError
+import chardet
 
 def execute(cmd, cwd = None):
     print("Executing: %s in %s" % (cmd, cwd), file=sys.stderr)
@@ -39,7 +40,10 @@ def execute(cmd, cwd = None):
 
 def getXCodeMajor():
     ret = check_output(["xcodebuild", "-version"])
-    m = re.match(r'XCode\s+(\d)\..*', ret, flags=re.IGNORECASE)
+    encode_type = chardet.detect(ret)
+    ret = ret.decode(encode_type['encoding'])
+    print("#Debug# ret='%s'" % ret)
+    m = re.match(r'Xcode\s+(\d+)\..*', ret, flags=re.IGNORECASE)
     if m:
         return int(m.group(1))
     return 0
@@ -109,6 +113,7 @@ class Builder:
 
     def build(self, outdir):
         try:
+            print("outdir='%s'" % outdir)
             self._build(outdir)
         except Exception as e:
             print("="*60, file=sys.stderr)
